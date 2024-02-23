@@ -1,8 +1,7 @@
 import connectDB from "./db/index.js";
-import express from "express";
-const app = express();
+import app from "./app.js";
 
-console.log(process.env.MONGODB_URIs);
+// This will return a promise
 connectDB()
   .then(() => {
     app.listen(process.env.PORT || 3000, () => {
@@ -10,7 +9,7 @@ connectDB()
     });
   })
   .catch((err) => {
-    console.log("MONGO db connection failed !!! ", err);
+    console.log("MONGO DB Connection failed !!!", err);
   });
 
 // Run node --env-file=.env index.js
